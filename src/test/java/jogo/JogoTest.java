@@ -18,6 +18,80 @@ public class JogoTest {
 	 * Se for o segundo turno, voc� continuando jogando os dados e s� ganha se cair um numero igual ao anterior do primeiro turno;
 	 */
 
+
+    // ################## TESTA SE ENCERRA NO PRIMEIRO TURNO CORRETAMENTE ##################
+    @Test
+    public void testEncerraNoPrimeiroTurnoCom7() {
+        Jogo jogo = new Jogo();
+        Jogador mockedJogador = mock(Jogador.class);
+        Dado dado1 = new Dado();
+        Dado dado2 = new Dado();
+
+        when(mockedJogador.lancar(dado1, dado2)).thenReturn(7);
+
+		jogo.jogo(mockedJogador, dado1, dado2);
+
+        verify(mockedJogador).lancar(dado1, dado2);
+    }
+
+    @Test
+    public void testEncerraNoPrimeiroTurnoCom11() {
+        Jogo jogo = new Jogo();
+        Jogador mockedJogador = mock(Jogador.class);
+        Dado dado1 = new Dado();
+        Dado dado2 = new Dado();
+
+        when(mockedJogador.lancar(dado1, dado2)).thenReturn(11);
+
+		jogo.jogo(mockedJogador, dado1, dado2);
+
+        verify(mockedJogador).lancar(dado1, dado2);
+    }
+
+    @Test
+    public void testEncerraNoPrimeiroTurnoCom2() {
+        Jogo jogo = new Jogo();
+        Jogador mockedJogador = mock(Jogador.class);
+        Dado dado1 = new Dado();
+        Dado dado2 = new Dado();
+
+        when(mockedJogador.lancar(dado1, dado2)).thenReturn(2);
+
+		jogo.jogo(mockedJogador, dado1, dado2);
+
+        verify(mockedJogador).lancar(dado1, dado2);
+    }
+
+    @Test
+    public void testEncerraNoPrimeiroTurnoCom3() {
+        Jogo jogo = new Jogo();
+        Jogador mockedJogador = mock(Jogador.class);
+        Dado dado1 = new Dado();
+        Dado dado2 = new Dado();
+
+        when(mockedJogador.lancar(dado1, dado2)).thenReturn(3);
+
+		jogo.jogo(mockedJogador, dado1, dado2);
+
+        verify(mockedJogador).lancar(dado1, dado2);
+    }
+
+    @Test
+    public void testEncerraNoPrimeiroTurnoCom12() {
+        Jogo jogo = new Jogo();
+        Jogador mockedJogador = mock(Jogador.class);
+        Dado dado1 = new Dado();
+        Dado dado2 = new Dado();
+
+        when(mockedJogador.lancar(dado1, dado2)).thenReturn(12);
+
+		jogo.jogo(mockedJogador, dado1, dado2);
+
+        verify(mockedJogador).lancar(dado1, dado2);
+    }
+
+
+    // ################## TESTA SE GANHA NO PRIMEIRO TURNO CORRETAMENTE ##################
     @Test
     public void testGanhaNoPrimeiroTurnoCom7() {
         Jogo jogo = new Jogo();
@@ -44,6 +118,8 @@ public class JogoTest {
         assertTrue(ganhou);
     }
 
+
+    // ################## TESTA SE PERDE NO PRIMEIRO TURNO CORRETAMENTE ##################
     @Test
     public void testPerdeNoPrimeiroTurnoCom2() {
         Jogo jogo = new Jogo();
@@ -70,7 +146,6 @@ public class JogoTest {
         assertFalse(ganhou);
     }
 
-
     @Test
     public void testPerdeNoPrimeiroTurnoCom12() {
         Jogo jogo = new Jogo();
@@ -83,4 +158,7 @@ public class JogoTest {
 		boolean ganhou = jogo.jogo(mockedJogador, dado1, dado2);
         assertFalse(ganhou);
     }
+
+
+
 }
